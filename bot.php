@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/functions.php';
 
-
-$bot = new SlackBot\Core();
+$config = new SlackBot\Config();
+$bot = new SlackBot\Core($config);
 $bot->connect();

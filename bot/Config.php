@@ -11,7 +11,7 @@ class Config {
     $this->config = $config;
   }
 
-  protected function get($key) {
-    return isset($config[$key]) ? $config[$key] : NULL;
+  public function get($key) {
+    return isset($this->config[$key]) ? $this->config[$key] : NULL;
   }
 }
