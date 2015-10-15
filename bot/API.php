@@ -6,15 +6,8 @@ use GuzzleHttp\Client as HTTPClient;
 
 class API {
 
-  protected $config;
   protected $slack_url = 'https://slack.com/api/';
-  protected $bot;
   protected $RTMSession;
-
-  public function __construct(Config $config, Core $bot) {
-    $this->config = $config;
-    $this->bot = $bot;
-  }
 
   public function getRTMSession() {
     if (!(isset($this->RTMSession) && $this->RTMSession->connected())) {
@@ -33,13 +26,11 @@ class API {
   }
 
   protected function request($method, $data) {
-    $data['token'] = $this->config->get('token');
+    $data['token'] = Services::load('Config')->get('token');
     $client = new HTTPClient(['base_uri' => $this->slack_url]);
     $request = $client->request('POST', $method, ['form_params' => $data]);
 
     $body =  $request->getBody();
     return json_decode($body);
   }
-
-
 }
