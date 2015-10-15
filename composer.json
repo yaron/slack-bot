@@ -4,6 +4,9 @@
     "textalk/websocket": "^1.2"
   },
   "autoload": {
-    "psr-4": {"SlackBot\\": "bot/"}
+    "psr-4": {
+      "SlackBot\\": "bot/",
+      "Controllers\\": "Controllers/"
+    }
   }
 }
