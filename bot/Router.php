@@ -15,12 +15,9 @@ class Router {
   
   public function match(Request $request) {
     foreach ($this->routes as $route) {
-      echo 'matching';
       if ($route['type'] == $request->getType()) {
-        echo 'typematch';
         if ($route['route']->match($request, $route['match'])) {
           list($method, $class) = explode('@', $route['target']);
-echo $class;
           $controller = new $class();
           $controller->$method($request);
         }
