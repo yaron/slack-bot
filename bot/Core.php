@@ -5,7 +5,6 @@ namespace SlackBot;
 Class Core {
   public function connect() {
     while (true) {
-      sleep(2);
       $this->listen();
     }
   }
@@ -25,9 +24,12 @@ Class Core {
     }
 
     // Only send a ping if we got a pong. That way we never send more pings than
-    // we get pongs. If we did we'd create a long queue of pongs that will add
+    // we get pongs. If we did, we'd create a long queue of pongs that will add
     // increasing latency to the bot.
+    // Also only sleep after a pong, that way we can react faster on series of
+    // events.
     if ($pong) {
+      sleep(2);
       Services::load('API')->getRTMSession()->ping();
     }
   }
