@@ -10,7 +10,7 @@ class Route {
   );
 
   public function getRegex($match) {
-    return '#' . str_replace(array_keys($this->matchTypes), $this->matchTypes, $match) . '#';
+    return '#^' . str_replace(array_keys($this->matchTypes), $this->matchTypes, $match) . '$#';
   }
 
   public function match(Request $request, $match) {
