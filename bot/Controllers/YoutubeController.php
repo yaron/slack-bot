@@ -23,11 +23,15 @@ class YoutubeController {
       'q' => $query,
       'type' => 'video',
       'key' => $api_key,
+      'safeSearch' => 'none',
+      'maxResults' => 50,
+      'videoSyndicated' => 'true',
     ]]);
 
     $youtubes = json_decode($http_request->getBody());
 
-    $message = 'https://www.youtube.com/watch?v=' . $youtubes->items[0]->id->videoId;
+    $id = mt_rand(0, count($youtubes->items) - 1);
+    $message = 'https://www.youtube.com/watch?v=' . $youtubes->items[$id]->id->videoId;
 
 
     $rtm_session->sendMessage($message, $request->getData()->channel);
