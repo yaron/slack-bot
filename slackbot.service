@@ -7,3 +7,4 @@ Type=simple
 PIDFile=/var/run/slackbot.pid
 ExecStart=/usr/bin/php -f /path/to/slackbot/bot.php
 Restart=on-failure
+RestartSec=5
