@@ -13,4 +13,7 @@ Getting started
 
 Creating plugins
 ----------------
-@TODO
+1. Create controller and/or service classes.
+2. Reference the custom classes in the composer.json file to get the loaded.
+3. Add services to services.php and controllers to routing.php
+4. If needed edit config.php.
