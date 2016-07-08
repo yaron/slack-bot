@@ -5,7 +5,7 @@ namespace SlackBot;
 
 class Route {
   protected $matchTypes = array(
-    '*'  => '.+?',
+    '*'  => '.*?',
     '#'  => '\#',
   );
 

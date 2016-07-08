@@ -6,7 +6,7 @@ namespace SlackBot\Controllers;
 use SlackBot\Request;
 use SlackBot\Services;
 
-class YoutubeController {
+class SorryController {
 
 
   public function Sorry(Request $request) {
